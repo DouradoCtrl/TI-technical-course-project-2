@@ -1,0 +1,448 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  color: #ffffff;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  /* tira a propriedade de link */
+  transition: 0.3s;
+}
+
+a:hover {
+  color: rgb(255, 94, 0);
+  opacity: 0.7;
+}
+
+#revisao {
+  color: #ffffff;
+  transition: none;
+}
+
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  /* deixa lado a lado a logo com a ul*/
+  justify-content: space-around;
+  /* espaço ao redor metade do espaço entre eles */
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 8vh;
+  width: 100%;
+  /* unidade de medida para altura *responsiva* (se adapta a altura de janela de visualização*/
+}
+
+.conteudosdanav {
+  list-style: none;
+  /* tira as bolinhas */
+  display: flex;
+  /* tira o inline block */
+}
+
+.conteudosdanav li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+  cursor: pointer;
+}
+
+.conteudosdanav li:hover {
+  opacity: 0.7;
+}
+
+.dropdown {
+  display: none;
+  /* escondendo a listinha para retirar o display none o responsivo */
+  cursor: pointer;
+}
+
+.dropdown div {
+  width: 32px;
+  height: 2px;
+  background: rgb(255, 255, 255);
+  margin: 8px;
+  transition: 0.3s;
+  /* criar as 3 barrinhas */
+}
+
+/* ========== RESPONSIVO ============ usei a internet*/
+
+@media (max-width: 999px) {
+
+  /* quando a largura alcançar o valor de  999 irá aparecer a lista */
+  * {
+    overflow-x: hidden;
+    /* retoma o translatX de baixo e esconde ele do body para n forma rolagem na horizontal */
+  }
+
+  .conteudosdanav {
+    position: fixed;
+    /* Permite posicionar a lista onde quiser */
+    top: 8vh;
+    /* ficar abaixo do header */
+    right: 0;
+    /* menu a direita */
+    width: 40vw;
+    /* deixa a nav cobrindo metade da tela */
+    height: 92vh;
+    /* box-shadow: 4px 17px 20px rgb(255, 255, 255); */
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0px 0px 20px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* faz um calculo de espaço por resolução automatico */
+    transform: translateX(100%);
+    /* Joga o conteudo para fora da tela no momento que a largura abaixa */
+    transition: transform 0.3s ease-in;
+  }
+
+  .conteudosdanav li {
+    margin-left: 0;
+    opacity: 0.7;
+
+  }
+
+  .dropdown {
+    display: block;
+    /* deixa os 3 traços visiveis */
+  }
+}
+
+/* FIm do responsivo */
+/* animações graças ao javascript - vi na internet e fiz o passo a passo */
+
+.conteudosdanav.active {
+  transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropdown.active .linha1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.dropdown.active .linha2 {
+  opacity: 0;
+}
+
+.dropdown.active .linha3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+
+/* fim das animações */
+/* Conteudo início*/
+main {
+  text-align: center;
+
+}
+
+/* img {
+  width: 20%;
+  border-radius: 20px;
+  margin: 0px 0px 30px 0px;
+  display: block;
+  margin: auto;
+
+} */
+
+.bg {
+  background: url("../imagens/basseidt.jpg");
+  width: 100%;
+  height: 100vh;
+  background-attachment: fixed;
+  padding-top: 17rem;
+}
+
+#alin {
+  font-size: 5rem;
+  text-shadow: 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+#alin2 {
+  padding: 0px 0 20px 0;
+  text-shadow: 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.size {
+  width: 50%;
+  margin: auto;
+  font-size: 1.2rem;
+}
+
+#botao {
+  background-color: transparent;
+  font-weight: bold;
+  color: white;
+  padding: 5px 40px;
+  margin-top: 40px;
+  font-size: 2em;
+  border-radius: 15px;
+  border: solid white 2px;
+  margin-bottom: 40px;
+}
+
+#botao:hover {
+  background-color: #000;
+  transition: 0.8;
+  font-size: 205%;
+
+}
+
+/* Conteudo sobre*/
+#ini {
+  padding: 30px;
+  color: #FFF;
+  background-attachment: fixed;
+  background-color: #373540;
+  font-size: 1.5rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+#ini h1 {
+  text-shadow: 2px 5px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2rem;
+  font-size: 2.0rem;
+}
+
+#ini p {
+  text-align: justify;
+}
+
+#ini ol {
+  margin: 20px 0px 0px 40px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+#ini h3 {
+  text-align: left;
+}
+
+/*conteudodagaleria*/
+#galley {
+  background: url("../imagens/basseidt.jpg");
+  background-attachment: fixed;
+  width: 100%;
+  font-size: 2.0rem;
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+  text-align: center;
+  color: #FFF;
+  text-shadow: 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+#galley h1 {
+  margin-bottom: 2rem;
+}
+
+#galley img {
+  display: inline-block;
+
+}
+
+.galeria {
+  width: 300px;
+  height: 200px;
+  margin: 20px;
+  border-radius: 10px;
+  border: solid 2px #FFF;
+  box-shadow: 5px 5px 20px #000;
+}
+
+.galeria:hover {
+  transition: 0.3s;
+  transform: scale(1.5);
+}
+
+#perfis {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 3rem;
+  font-size: 2.0rem;
+  padding-top: 80px;
+  color: #FFF;
+  text-align: center;
+  background-color: #373540;
+  text-shadow: 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.disco {
+  width: 180px;
+  margin: 90px 40px 0px 0px;
+  border-radius: 200%;
+  border: solid 2px #FFF;
+  box-shadow: 5px 5px 20px #000;
+}
+
+.disco:hover {
+  transform: scale(1.05);
+  transition: 0.1s;
+}
+
+#perfis a {
+  opacity: 1;
+}
+
+.correct h1 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.correcao1 {
+  margin-bottom: 20px;
+  margin-right: 1rem;
+}
+
+.correcao {
+  margin-bottom: 20px;
+}
+
+#contato {
+  background-color: #373540;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  padding-top: 5rem;
+  padding-bottom: 9rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #FFF;
+}
+
+#contato h1 {
+  font-size: 2.0rem;
+  margin-bottom: 20px;
+}
+
+#contato label {
+  display: block;
+  margin: 10px;
+}
+
+#contato hr {
+  margin-bottom: 2rem;
+}
+
+#contato input {
+  margin-bottom: 1.5rem;
+}
+
+#contato h1 {
+  margin-bottom: 2rem;
+}
+
+#contato input,
+textarea {
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.0em;
+  border: none;
+}
+
+#contato button {
+  border: 0px;
+  font-size: 1.2em;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  border: solid 2px;
+}
+
+#contato button:hover {
+  background-color: #000;
+  color: #FFF;
+  border: solid 2px #FFF;
+  color: #FFF;
+  transition: 0.8;
+  width: 120px;
+  padding: 15px;
+}
+
+
+#cronograma {
+  background: url("../imagens/basseidt.jpg");
+  background-attachment: fixed;
+  width: 100%;
+  font-size: 2.0rem;
+  padding-bottom: 9rem;
+}
+
+#cronograma h1 {
+  padding-top: 9rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+table {
+  border-radius: 20px;
+  padding: 20px;
+  margin: auto;
+}
+
+td,
+th {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: solid 2px;
+  padding: 10px 110px;
+  border-radius: 10px;
+  text-align: justify;
+}
+
+td:hover {
+  background-color: #ff4800;
+  transition: 0.2s;
+}
+
+/* reponsivo tabela */
+@media (max-width: 999px) {
+
+  td,
+  th {
+    padding: 10px 40px;
+
+  }
+
+  /* responsivo discoteca */
+  .correcao {
+    width: 80%;
+    height: 200px;
+  }
+
+  .correcao1 {
+    width: 80%;
+    height: 200px;
+  }
+}

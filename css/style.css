@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none; /* tira a propriedade de link */
+}
+a:hover {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex; /* deixa lado a lado a logo com a ul*/
+    justify-content: space-around;/* espaço ao redor metade do espaço entre eles */
+    align-items: center;
+    background: #23232e;
+    height: 8vh; /* unidade de medida para altura *responsiva* (se adapta a altura de janela de visualização*/
+    
+}
+
+main {
+    background: url(../images/1.png) no-repeat center center/* center para  reajustar eixo x com y */;
+    background-size: cover; /* para nao bugar a imagem do monitor em comparação a da imagem */
+    height: 92vh;
+}
+.nav-list {
+    list-style: none;/* tira as bolinhas */
+    display: flex; /* tira o inline block */
+}
+
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+.mobile-menu {
+    cursor: pointer;
+    display: none; /* escondendo a listinha para retirar o display none o responsivo */
+}
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #FFF;
+    margin: 8px;
+    /* criar as 3 barrinhas */
+}
+
+/* ========== RESPONSIVO ============ */
+
+@media (max-width:999px) { /* quando a largura alcançar o valor de  999 irá aparecer a lista */
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    .nav-list {
+        position: absolute;/* Permite posicionar a lista onde quiser */
+        top: 8vh; /* ficar abaixo do header */
+        right: 0; /* menu a direita */
+        width: 50vw; /* deixa a nav cobrindo metade da tela */
+        height: 92vh;
+        background: #23232e;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around; /* faz um calculo de espaço por resolução automatico */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+
+    }
+    .nav-list li {
+        margin-left: 0;
+        opacity: 0;
+    }
+    .mobile-menu {
+        display: block; /* deixa os 3 traços visiveis */
+        opacity: 0;
+    }
+}
+.nav-list.active {
+    transform: translateX(0);
+            
+}
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }   
+}
+
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+}
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
